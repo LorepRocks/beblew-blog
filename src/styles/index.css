@@ -21,11 +21,21 @@ main {
   flex-flow: column;
   justify-content: flex-end;
 }
+.bg-gradient {
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(
+    top,
+    rgba(15, 15, 15, 0.45),
+    rgba(15, 15, 15, 0.8) 65%,
+    #0f0f0f
+  );
+}
 
 article {
   width: 100%;
   width: 95vw;
-  height: 12rem;
+  height: 30rem;
   margin: 0.3rem;
   border-radius: 2px;
   background: var(--card-bg-color);
@@ -41,12 +51,16 @@ article {
 }
 .post__info_container {
   height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
 .post__title {
   width: 100%;
   display: grid;
-  place-content: start;
+  place-content: center;
   padding: 0 1.3rem 0 1.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .post__date-box {
@@ -60,6 +74,7 @@ article {
 }
 .post__info {
   display: flex;
+  justify-content: center;
 }
 
 .post__options {
@@ -83,7 +98,7 @@ article {
 }
 .post__title_box {
   text-transform: uppercase;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.2rem;
   color: var(--card-title-color);

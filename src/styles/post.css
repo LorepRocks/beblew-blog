@@ -44,6 +44,7 @@
   flex-flow: column;
   justify-content: center;
   width: 100vw;
+  height: 12rem;
 }
 .article-tags {
   height: auto;
