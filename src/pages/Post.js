@@ -10,8 +10,10 @@ class Post extends React.Component {
     error: null,
     post: {},
   };
+
   componentDidMount() {
     this.parse = require('html-react-parser');
+    this.moment = require('moment');
     this.api = new Api();
     this.readPost();
   }
@@ -51,7 +53,10 @@ class Post extends React.Component {
                 <div className='article-title'>{post.title}</div>
                 <div className='post__tags article-tags'>
                   {post.tags.map((tag) => (
-                    <div key={tag.id} className='post__tag article-tag'>
+                    <div
+                      key={tag.id}
+                      className='post__tag article-tag animate__animated animate__fadeInDown'
+                    >
                       {tag.name}
                     </div>
                   ))}
@@ -62,7 +67,9 @@ class Post extends React.Component {
                     {post.primary_author.name}
                   </div>
                   <div className='icon-a date-icon'></div>
-                  <div className='article-date'>25 Jun 2020</div>
+                  <div className='article-date'>
+                    {this.moment(post.created_at).format('MMM DD YYYY')}
+                  </div>
                 </div>
               </div>
               <div className='wave'></div>

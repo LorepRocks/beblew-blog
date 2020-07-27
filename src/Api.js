@@ -1,5 +1,5 @@
 import GhostContentAPI from '@tryghost/content-api';
-const BASE_URL = 'http://192.168.0.15:2368';
+const BASE_URL = 'http://192.168.0.12:2368';
 const KEY = 'b217a53126b99fbc4deee59ed5';
 const VERSION = 'v3';
 

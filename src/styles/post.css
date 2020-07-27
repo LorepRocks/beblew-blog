@@ -70,6 +70,9 @@
 .article-title {
   font-size: 2rem;
   font-weight: bold;
+  text-transform: uppercase;
+  font-family: Oswald, sans-serif;
+  animation-delay: 0.5s;
 }
 .article-info-box {
   display: flex;
@@ -82,6 +85,10 @@
   height: 0.7rem;
   background-size: cover;
   margin-right: 0.2rem;
+}
+.article-author {
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
 }
 .author-icon {
   background: url('../img/user2.svg');
