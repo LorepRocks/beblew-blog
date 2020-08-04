@@ -1,5 +1,5 @@
 import GhostContentAPI from '@tryghost/content-api';
-const BASE_URL = 'http://192.168.0.12:2368';
+const BASE_URL = 'http://192.168.0.8:2368';
 const KEY = 'b217a53126b99fbc4deee59ed5';
 const VERSION = 'v3';
 
@@ -21,6 +21,14 @@ class Api {
       { include: 'tags,authors' },
       { formats: ['html'] }
     );
+  }
+  getTags() {
+    return this.contentAPI.tags.browse();
+  }
+  getPostsByTag(tag) {
+    return this.contentAPI.posts.browse({
+      filter: `tag:${tag}`,
+    });
   }
 }
 

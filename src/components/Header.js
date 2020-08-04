@@ -1,43 +1,43 @@
 import React from 'react';
 import Navbar from './Navbar';
 import '../styles/shared.css';
+import Search from '../pages/Search';
 
 class Header extends React.Component {
   state = {
-    showNavbar: false,
+    showSearch: false,
     class: '',
     darkMode: localStorage.getItem('darkMode') === 'true' ? true : false,
+    themeIcon: 'fa-moon-o',
   };
   handleToggleClick = (e) => {
-    console.log('___click toggle');
+    console.log('___click search');
     this.setState((prevState) => {
       return {
-        showNavbar: prevState.showNavbar ? false : true,
-        class: prevState.showNavbar ? '' : 'open',
+        showSearch: prevState.showSearch ? false : true,
+        class: prevState.showSearch ? '' : 'open',
       };
     });
   };
 
   handleNavClose = () => {
-    console.log('close navbar');
     this.setState((prevState) => {
       return {
-        showNavbar: prevState.showNavbar ? false : true,
-        class: prevState.showNavbar ? '' : 'open',
+        showSearch: prevState.showSearch ? false : true,
+        class: prevState.showSearch ? '' : 'open',
       };
     });
   };
 
   handleNavDarkToggle = () => {
-    console.log('___toggle Dark mode', this.state.darkMode);
     this.setState((prevState) => {
       return {
         darkMode: prevState.darkMode ? false : true,
       };
     });
   };
+
   render() {
-    console.log('___this.state.showNavbar', this.state);
     if (this.state.darkMode) {
       localStorage.setItem('darkMode', true);
       document.documentElement.setAttribute('data-theme', 'dark');
@@ -50,13 +50,14 @@ class Header extends React.Component {
         <div className='logo'>Beblew</div>
         <div className='backdrop'></div>
         <div onClick={this.handleToggleClick} className='toggle-button'></div>
-        {this.state.showNavbar && (
-          <Navbar
-            class={this.state.class}
-            onClose={this.handleNavClose}
-            onToggleDark={this.handleNavDarkToggle}
-            darkMode={this.state.darkMode}
-          />
+        <Navbar
+          onAdjustClick={this.handleNavDarkToggle}
+          themeIcon={this.state.themeIcon}
+          darkMode={this.state.darkMode}
+          onSearchClick={this.handleToggleClick}
+        />
+        {this.state.showSearch && (
+          <Search onClose={this.handleNavClose} addClass={this.state.class} />
         )}
       </header>
     );

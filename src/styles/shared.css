@@ -26,7 +26,7 @@
   --post-title-span-color: black;
   --post-border-color: black;
   /*Mobile Nav*/
-  --mb-bg-color: white;
+  --mb-bg-color: #f6f6f6;
   --mb-list-color: black;
   --mb-profile-name-color: black;
   --mb-profile-view-color: rgba(0, 0, 0, 0.8);
@@ -38,6 +38,7 @@
   --logout-icon: url('../img/off.svg');
   --darkmode-icon: url('../img/dark.svg');
   --close-icon: url('../img/close.svg');
+  --tags-icon: url('../img/squares.svg');
   /*POST*/
   --wave-bg: url('../img/wave.svg');
   --article-text-color: black;
@@ -46,6 +47,11 @@
   --options-bg-color: #ffcfb3;
   --options-icon: url('../img/more.svg');
   --box-shadow-hover: rgba(0, 0, 0, 0.21);
+  --links-color: #d68492cc;
+  /*SEARCH*/
+  --input-bg: #f6f6f6;
+  --input-txt-color: black;
+  --input-border-focus: rgb(170, 106, 106);
 }
 
 [data-theme='dark'] {
@@ -70,6 +76,7 @@
   --lock-icon: url('../img/lock-dk.svg');
   --instagram-icon: url('../img/instagram-dk.svg');
   --twitter-icon: url('../img/twitter-dk.svg');
+  --tags-icon: url('../img/squares.svg');
   --tag-bg-color: #9d779c;
   --large-bg-color: #22252b;
   --medium-bg-color: #22252b;
@@ -77,7 +84,7 @@
   --post-border-color: #ce9ac0;
   /*Mobile Nav*/
   --mb-bg-color: #22252b;
-  --mb-list-color: #d2cfcf;
+  --mb-list-color: black;
   --mb-profile-name-color: #d2cfcf;
   --mb-profile-view-color: #b7b2b2;
   --home-icon: url('../img/home-dk.svg');
@@ -96,6 +103,11 @@
   --options-bg-color: #6a51a4;
   --options-icon: url('../img/more-dk.svg');
   --box-shadow-hover: rgb(7, 8, 10);
+  --links-color: #654ea3;
+  /*SEARCH*/
+  --input-bg: #22252b;
+  --input-txt-color: #f6f6f6;
+  --input-border-focus: rgb(170, 106, 106);
 }
 /* DARK GRADIENT linear-gradient(to left, #b2fefa, #0ed2f7);
 --main-bg-color-two: rgba(178, 254, 250, 0.8);
@@ -121,7 +133,7 @@ header {
   height: 3rem;
   width: 100vw;
   position: fixed;
-  text-align: center;
+  text-align: left;
   color: white;
   z-index: 2;
   display: flex;
@@ -142,10 +154,11 @@ header {
   color: black;
   font-family: 'Engagement', cursive;
   font-size: 1.8rem;
+  width: 70%;
 }
 nav {
   text-align: center;
-  width: 80vw;
+  width: 30%;
 }
 
 .toggle-button {
@@ -154,6 +167,7 @@ nav {
   width: 1rem;
   background-repeat: no-repeat;
   margin-top: 0.5rem;
+  display: none;
 }
 .post__tags {
   display: flex;
@@ -279,18 +293,75 @@ nav {
 }
 .mobile-nav__items {
   display: flex;
-  flex-direction: column;
+  /*  flex-direction: column; */
   justify-content: center;
   align-content: center;
   list-style: none;
   text-align: left;
   margin: 0 1rem;
   color: var(--mb-list-color);
+  height: 2rem;
+  width: 100%;
+}
+
+.search-container {
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
   height: 100vh;
+  width: 100vw;
+  background: var(--mb-bg-color);
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+.search-input-container {
+  position: absolute;
+  margin: 3rem 1rem;
+  top: 0;
+  width: 100%;
+}
+.search-input {
+  width: 90%;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 0.625rem;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  background: var(--input-bg);
+  color: var(--input-txt-color);
+}
+.search-input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--input-border-focus);
+}
+.search-results {
+  height: 90vh;
+  margin: 6.5rem 1rem 1rem;
+}
+.search-tags-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.search-tags-item {
+  margin: 0.5rem;
+  padding: 0.4rem;
+  list-style: none;
+  background: var(--tag-bg-color);
+  border-radius: 0.2rem;
+  font-family: Raleway, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
 .mobile-nav__item {
-  margin: 1rem 0;
+  margin: auto;
   text-decoration: none;
 }
 
@@ -335,6 +406,9 @@ nav {
 }
 .icon-dark {
   background: var(--darkmode-icon);
+}
+.icon-tags {
+  background: var(--tags-icon);
 }
 .darkmode {
   display: flex;
@@ -398,7 +472,7 @@ input:checked + .slider:before {
   transform: translateX(16px);
 }
 .open {
-  display: block !important;
+  display: flex !important;
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
