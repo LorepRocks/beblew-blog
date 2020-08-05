@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import '../styles/shared.css';
 import Search from '../pages/Search';
+import Api from '../Api';
 
 class Header extends React.Component {
   state = {
@@ -9,7 +10,20 @@ class Header extends React.Component {
     class: '',
     darkMode: localStorage.getItem('darkMode') === 'true' ? true : false,
     themeIcon: 'fa-moon-o',
+    posts: [],
   };
+  componentDidMount() {
+    this.api = new Api();
+    this.getPosts();
+  }
+  getPosts = async () => {
+    await this.api.getPosts().then((posts) => {
+      this.setState({
+        posts: posts,
+      });
+    });
+  };
+
   handleToggleClick = (e) => {
     console.log('___click search');
     this.setState((prevState) => {
@@ -57,7 +71,11 @@ class Header extends React.Component {
           onSearchClick={this.handleToggleClick}
         />
         {this.state.showSearch && (
-          <Search onClose={this.handleNavClose} addClass={this.state.class} />
+          <Search
+            onClose={this.handleNavClose}
+            addClass={this.state.class}
+            posts={this.state.posts}
+          />
         )}
       </header>
     );
