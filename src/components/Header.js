@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import { Link } from 'react-router-dom';
 import '../styles/shared.css';
 import Search from '../pages/Search';
 import Api from '../Api';
@@ -35,6 +36,7 @@ class Header extends React.Component {
   };
 
   handleNavClose = () => {
+    document.body.style.position = 'unset';
     this.setState((prevState) => {
       return {
         showSearch: prevState.showSearch ? false : true,
@@ -61,7 +63,11 @@ class Header extends React.Component {
     }
     return (
       <header className='header shadow header-post'>
-        <div className='logo'>Beblew</div>
+        <div className='logo'>
+          <Link className='redirect' to='/'>
+            Beblew
+          </Link>
+        </div>
         <div className='backdrop'></div>
         <div onClick={this.handleToggleClick} className='toggle-button'></div>
         <Navbar
@@ -75,6 +81,7 @@ class Header extends React.Component {
             onClose={this.handleNavClose}
             addClass={this.state.class}
             posts={this.state.posts}
+            onSearchClick={this.handleToggleClick}
           />
         )}
       </header>

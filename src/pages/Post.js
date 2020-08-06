@@ -12,6 +12,7 @@ class Post extends React.Component {
   };
 
   componentDidMount() {
+    document.body.style.position = 'unset';
     this.parse = require('html-react-parser');
     this.moment = require('moment');
     this.api = new Api();

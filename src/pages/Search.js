@@ -13,12 +13,13 @@ class Search extends React.Component {
       searchText: '',
       posts: props.posts,
       filteredPosts: [],
-      totalResult: 0,
+      onClose: props.onSearchClick,
     };
   }
   componentDidMount() {
     this.api = new Api();
     this.getTags();
+    document.body.style.position = 'fixed';
   }
 
   getTags = async () => {
@@ -37,7 +38,6 @@ class Search extends React.Component {
       console.log(posts);
       this.setState({
         postByTag: posts,
-        totalResult: posts.length,
       });
     });
     console.log('___post by tag', this.state.postByTag);
@@ -50,7 +50,6 @@ class Search extends React.Component {
     this.setState({
       filteredPosts: [],
       postByTag: [],
-      totalResult: 0,
     });
     console.log('_____filtered befre', this.state.filteredPosts);
 
@@ -60,7 +59,6 @@ class Search extends React.Component {
       });
       this.setState({
         filteredPosts: filter,
-        totalResult: filter.length,
       });
       console.log('_____filtered', this.state.filteredPosts);
     }
@@ -90,18 +88,25 @@ class Search extends React.Component {
                   </li>
                 ))}
               </ul>
+              <div className='tags-msg'>
+                Puedes selecionar un tag para filtrar
+              </div>
+              <div className='result-count'>0 Post Encontrados</div>
             </div>
           )}
         {this.state.postByTag.length > 0 &&
           this.state.filteredPosts.length === 0 && (
-            <SearchResult posts={this.state.postByTag} />
+            <SearchResult
+              posts={this.state.postByTag}
+              onClose={this.state.onClose}
+            />
           )}
         {this.state.filteredPosts.length > 0 && (
-          <SearchResult posts={this.state.filteredPosts} />
+          <SearchResult
+            posts={this.state.filteredPosts}
+            onClose={this.state.onClose}
+          />
         )}
-        <div className='result-count'>
-          {this.state.totalResult} Post Encontrados
-        </div>
       </div>
     );
   }
