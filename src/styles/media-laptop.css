@@ -1,0 +1,139 @@
+@media (min-width: 960px) {
+  main {
+    padding: 2rem 5rem 1rem;
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+  header {
+    height: 4rem;
+  }
+  .logo {
+    margin-left: 5rem;
+    font-size: 2.5rem;
+  }
+  .icon {
+    font-size: 1.3rem;
+  }
+  .mobile-nav__item {
+    margin: 1rem 1rem 0;
+  }
+  .mobile-nav__items {
+    margin: 0 -5.5rem;
+  }
+  .post {
+    width: 30.5%;
+    height: 35rem;
+    flex-grow: 0;
+  }
+
+  .post__title_box {
+    font-size: 2.8em;
+  }
+
+  article {
+    margin: 1rem;
+  }
+  article:nth-child(1) {
+    flex-basis: 63.5%;
+  }
+  article:nth-child(1) .post__title_box {
+    font-size: 3.2rem;
+  }
+
+  .post__options {
+    height: 4rem;
+    padding: 1rem 0.5rem;
+  }
+  .post__options div {
+    width: 1.5rem;
+    background-size: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .post__title {
+    display: grid;
+    place-content: center;
+  }
+
+  .post__author {
+    font-size: 0.8rem;
+  }
+  .post__tag {
+    font-size: 0.8rem;
+  }
+
+  .post__preview {
+    font-size: 0.9rem;
+    height: 2rem;
+  }
+  .normal {
+    background: var(--card-bg-color);
+  }
+
+  /*POST*/
+  .header-post {
+    box-shadow: none;
+  }
+  .header-post .profile_name {
+    font-size: 0.9rem;
+  }
+  .header-post .profile_view {
+    font-size: 0.8rem;
+  }
+  .main-post {
+    padding: 0;
+  }
+  .back-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: 1.3rem;
+  }
+  .article-props {
+    padding: 1rem 2.5rem;
+  }
+  .article__info-container {
+    margin-top: 3rem;
+  }
+  .article-title {
+    font-size: 3.8rem;
+  }
+  .article-tag {
+    font-size: 0.9rem;
+    color: var(--article-tag-text-color);
+  }
+  .article-text {
+    width: 100%;
+    padding: 0 10rem 5rem;
+    margin-top: -4rem;
+    font-size: 1.1rem;
+  }
+  .wave {
+    height: 13rem;
+    background-position: 50% 64%;
+  }
+  .options {
+    display: none;
+  }
+  .more_options {
+    transform: none;
+    bottom: 7rem;
+    left: 3rem;
+    width: 3.5rem;
+    height: 10rem;
+  }
+  .options_list div {
+    width: 1.4rem;
+    margin: 0.7rem auto;
+    height: 1.8rem;
+  }
+  .post__options_save:hover {
+    background: var(--bookmark-check-icon) no-repeat;
+  }
+  .post__options_share:hover {
+    background: var(--shared-icon) no-repeat;
+  }
+  .post__options_pin:hover {
+    background: var(--pinned-icon) no-repeat;
+  }
+}

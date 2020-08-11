@@ -9,7 +9,7 @@ function PostItem(props) {
   const bgStyle = {
     backgroundImage: `url(${post.feature_image.replace(
       'localhost',
-      '192.168.0.11'
+      '192.168.0.3'
     )})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -24,10 +24,10 @@ function PostItem(props) {
               {`Lectura ${post.reading_time} min`}
             </div>
             <div className='post__title'>
+              <span></span>
               <div className='post__title_box animate__animated animate__fadeInDown'>
                 {post.title}
               </div>
-              <span></span>
             </div>
             <div className='post__item'>
               <div className='post__info'>

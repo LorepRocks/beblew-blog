@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Api from '../Api';
 import '../styles/shared.css';
 import '../styles/post.css';
+import '../styles/media-tablet.css';
+import '../styles/media-laptop.css';
 
 class Post extends React.Component {
   state = {
