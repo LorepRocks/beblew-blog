@@ -134,7 +134,7 @@
   }
   /*Search Bar*/
   .search-input-container {
-    margin: 1rem 3rem 1rem;
+    margin: 10rem 3rem 1rem;
     width: 92%;
   }
   .search-input {
@@ -148,5 +148,9 @@
   .post-result-container {
     height: 7rem;
     padding: 0.5rem;
+  }
+  .close {
+    top: 3rem;
+    right: 3rem;
   }
 }

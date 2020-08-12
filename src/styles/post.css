@@ -10,9 +10,19 @@
 .gradient {
   background: linear-gradient(
     to right,
-    var(--main-bg-color-one),
-    var(--main-bg-color-two)
+    var(--post-bg-color-one),
+    var(--post-bg-color-two)
   );
+}
+.post-dark-bg {
+  background: linear-gradient(
+    to right,
+    var(--post-bg-color-one),
+    var(--post-bg-color-two)
+  );
+}
+.post-dark-color {
+  color: black;
 }
 
 .article__info-container {

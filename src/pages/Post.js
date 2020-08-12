@@ -14,12 +14,24 @@ class Post extends React.Component {
   };
 
   componentDidMount() {
-    document.body.style.position = 'unset';
     this.parse = require('html-react-parser');
     this.moment = require('moment');
+    this.updateStyles();
     this.api = new Api();
     this.readPost();
   }
+
+  updateStyles = () => {
+    document.body.style.position = 'unset';
+    this.header = document.querySelector('.header-post');
+    this.header.classList.add('post-dark-bg');
+    this.iconbox = document.querySelectorAll('.iconbox');
+    this.iconbox.forEach((item) => {
+      item.classList.add('post-dark-color');
+    });
+    this.logo = document.querySelector('.logo');
+    this.logo.classList.add('post-dark-color');
+  };
 
   readPost = async () => {
     this.setState({ loading: true, error: null });
@@ -38,6 +50,14 @@ class Post extends React.Component {
         });
       });
   };
+
+  componentWillUnmount() {
+    this.header.classList.remove('post-dark-bg');
+    this.iconbox.forEach((item) => {
+      item.classList.remove('post-dark-color');
+    });
+    this.logo.classList.remove('post-dark-color');
+  }
 
   render() {
     const post = this.state.post;

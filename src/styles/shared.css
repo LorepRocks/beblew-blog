@@ -4,6 +4,8 @@
   padding: 0;
 }
 :root {
+  --post-bg-color-one: rgba(255, 195, 160, 0.8);
+  --post-bg-color-two: rgba(255, 175, 189, 0.8);
   --main-bg-color-one: rgba(255, 195, 160, 0.8);
   --main-bg-color-two: rgba(255, 175, 189, 0.8);
   --body-bg-color: white;
@@ -55,8 +57,8 @@
 }
 
 [data-theme='dark'] {
-  /*  --main-bg-color-one: rgba(101, 78, 163, 1);
-  --main-bg-color-two: rgba(234, 175, 200, 1); */
+  --post-bg-color-one: rgba(101, 78, 163, 1);
+  --post-bg-color-two: rgba(234, 175, 200, 1);
   --main-bg-color-one: rgb(17, 19, 23, 0.8);
   --main-bg-color-two: rgb(17, 19, 23, 0.8);
   --body-bg-color: #14161b;
@@ -296,8 +298,7 @@ nav {
 .mobile-nav__items {
   display: flex;
   /*  flex-direction: column; */
-  justify-content: end;
-  align-content: end;
+  justify-content: flex-end;
   list-style: none;
   text-align: left;
   margin: 0 1rem;
@@ -418,6 +419,7 @@ nav {
 }
 .iconbox {
   display: flex;
+  color: var(--card-title-color);
 }
 .icon {
   background-size: cover;

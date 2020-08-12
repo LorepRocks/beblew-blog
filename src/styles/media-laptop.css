@@ -11,6 +11,7 @@
     margin-left: 5rem;
     font-size: 2.5rem;
   }
+
   .icon {
     font-size: 1.3rem;
   }
@@ -28,6 +29,9 @@
 
   .post__title_box {
     font-size: 2.8em;
+  }
+  .post__read_time {
+    font-size: 0.7rem;
   }
 
   article {
@@ -64,8 +68,8 @@
   }
 
   .post__preview {
-    font-size: 0.9rem;
-    height: 2rem;
+    font-size: 0.75rem;
+    height: 3rem;
   }
   .normal {
     background: var(--card-bg-color);
@@ -87,13 +91,20 @@
   .back-button {
     width: 2.5rem;
     height: 2.5rem;
-    margin-left: 1.3rem;
+    margin-left: 6rem;
+  }
+  .article {
+    height: 23.9rem;
+  }
+  .article-header {
+    height: 1rem;
   }
   .article-props {
-    padding: 1rem 2.5rem;
+    padding: 1rem 7rem;
+    height: 10rem;
   }
   .article__info-container {
-    margin-top: 3rem;
+    margin-top: 2.1rem;
   }
   .article-title {
     font-size: 3.8rem;
@@ -104,7 +115,7 @@
   }
   .article-text {
     width: 100%;
-    padding: 0 10rem 5rem;
+    padding: 0 12rem 5rem;
     margin-top: -4rem;
     font-size: 1.1rem;
   }
@@ -117,8 +128,8 @@
   }
   .more_options {
     transform: none;
-    bottom: 7rem;
-    left: 3rem;
+    bottom: 1rem;
+    right: 3rem;
     width: 3.5rem;
     height: 10rem;
   }

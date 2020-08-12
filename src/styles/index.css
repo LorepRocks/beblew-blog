@@ -38,6 +38,7 @@ article {
 }
 .post:hover {
   box-shadow: 0px 2px 11px var(--box-shadow-hover);
+  transform: scale(1.5);
 }
 .post__header {
   width: 100%;
