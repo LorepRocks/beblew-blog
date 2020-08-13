@@ -7,6 +7,7 @@ function Search(props) {
   const [tags, setTags] = React.useState([]);
   const [postByTag, setPostByTag] = React.useState([]);
   const [filteredPosts, setFilteredPost] = React.useState([]);
+  const [selectedTag, setTagSelected] = React.useState('');
   const api = new Api();
 
   useEffect(() => {
@@ -22,10 +23,16 @@ function Search(props) {
     });
   }
   async function handleOnTagClick(e) {
+    console.log('___tag target', e.target);
     const tagSlug = e.target.id;
+    setTagSelected(tagSlug);
     await api.getPostsByTag(tagSlug).then((posts) => {
       setPostByTag(posts);
     });
+  }
+  function handleOnCleanClick(e) {
+    setPostByTag([]);
+    setTagSelected('');
   }
 
   async function handleChangeText(e) {
@@ -46,6 +53,11 @@ function Search(props) {
     <div className={`search-container ${props.addClass}`}>
       <div onClick={props.onClose} className='close'></div>
       <div className='search-input-container'>
+        {postByTag.length > 0 && (
+          <button onClick={handleOnCleanClick} className='btn-clear-search'>
+            X {selectedTag.replace('-', ' ').toUpperCase()}
+          </button>
+        )}
         <input
           onChange={handleChangeText}
           className='search-input'

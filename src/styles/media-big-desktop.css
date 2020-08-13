@@ -1,0 +1,17 @@
+@media (min-width: 1420px) {
+  main {
+    padding: 2rem 22rem 1rem;
+  }
+  .article__info-container {
+    margin-top: 8.2rem;
+  }
+  .wave {
+    height: 22rem;
+  }
+  .article-props {
+    height: 6rem;
+  }
+  .article-text {
+    padding: 0 25rem 5rem;
+  }
+}

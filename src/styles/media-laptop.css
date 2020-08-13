@@ -147,4 +147,50 @@
   .post__options_pin:hover {
     background: var(--pinned-icon) no-repeat;
   }
+  .post-result-container {
+    transition: 0.35s ease-in-out;
+  }
+  .post-result-container:hover {
+    padding-left: 1.5rem;
+    background: var(--search-result-hover);
+  }
+
+  /*SEARCH BAR*/
+  .search-results {
+    margin: 0 8rem 1rem;
+  }
+  .search-input-container {
+    margin: 1rem 8rem 1rem;
+    width: 82%;
+  }
+  .search-input {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+  .btn-clear-search {
+    width: 13rem;
+    font-size: 0.8rem;
+  }
+
+  .close {
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 2rem;
+    right: 8rem;
+  }
+  .search-tags-item {
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .btn-clear-search:hover {
+    box-shadow: 0px 2px 11px var(--box-shadow-hover);
+  }
+  .search-tags-item:hover {
+    box-shadow: 0px 2px 11px var(--box-shadow-hover);
+    transform: scale(1.1);
+  }
+  .tags-msg {
+    font-size: 0.9rem;
+  }
 }

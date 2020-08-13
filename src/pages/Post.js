@@ -5,6 +5,7 @@ import '../styles/shared.css';
 import '../styles/post.css';
 import '../styles/media-tablet.css';
 import '../styles/media-laptop.css';
+import '../styles/media-big-desktop.css';
 
 class Post extends React.Component {
   state = {

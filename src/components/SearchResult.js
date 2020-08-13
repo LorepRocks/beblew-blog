@@ -7,18 +7,16 @@ function SearchResult(props) {
     <div className='search-results'>
       {props.posts.map((post) => (
         <div key={post.id} className='post-result-container'>
-          <div className='post-result-title'>
-            <Link
-              onClick={props.onClose}
-              className='redirect'
-              to={`post/${post.slug}`}
-            >
-              {post.title}
-            </Link>
-          </div>
-          <div className='post-result-time-read'>
-            Lectura {post.reading_time} Min
-          </div>
+          <Link
+            onClick={props.onClose}
+            className='redirect'
+            to={`post/${post.slug}`}
+          >
+            <div className='post-result-title'>{post.title}</div>
+            <div className='post-result-time-read'>
+              Lectura {post.reading_time} Min
+            </div>
+          </Link>
         </div>
       ))}
     </div>
