@@ -153,4 +153,27 @@
     top: 3rem;
     right: 3rem;
   }
+
+  .options {
+    height: 3rem;
+    width: 3rem;
+    right: 2rem;
+  }
+  .options_icon {
+    height: 2rem;
+    width: 2rem;
+  }
+  .icon-share {
+    padding: 1rem;
+    width: 3rem;
+  }
+  .option-twitter {
+    transform: translate(-5.5rem, 1rem);
+  }
+  .option-facebook {
+    transform: translate(-6.5rem, 8.5rem);
+  }
+  .option-whatsapp {
+    transform: translate(-1.5rem, -3.9rem);
+  }
 }

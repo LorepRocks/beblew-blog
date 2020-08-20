@@ -49,7 +49,7 @@
   --options-bg-color: #ffcfb3;
   --options-icon: url('../img/more.svg');
   --box-shadow-hover: rgba(0, 0, 0, 0.21);
-  --links-color: #d68492cc;
+  --links-color: #f55b73;
   /*SEARCH*/
   --input-bg: #f6f6f6;
   --input-txt-color: black;
@@ -108,7 +108,7 @@
   --options-bg-color: #6a51a4;
   --options-icon: url('../img/more-dk.svg');
   --box-shadow-hover: rgb(7, 8, 10);
-  --links-color: #654ea3;
+  --links-color: #e2a9c6;
   /*SEARCH*/
   --input-bg: #22252b;
   --input-txt-color: #f6f6f6;
@@ -539,19 +539,30 @@ input:checked + .slider:before {
 
 footer {
   height: 2.5rem;
+  padding: 0.3rem 0.5rem;
+  background: linear-gradient(
+    to right,
+    var(--main-bg-color-one),
+    var(--main-bg-color-two)
+  );
 }
 .footer_options {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0.5rem;
 }
-.footer_options a {
-  width: 1rem;
-  margin: 0.3rem 1rem;
-  padding: 0.5rem;
-  background-size: cover;
+
+.footer_options p {
+  font-size: 0.7rem;
+  font-family: Raleway, sans-serif;
+  font-weight: 300;
+  color: var(--card-title-color);
+}
+.icon-footer {
+  margin: 0 0.5rem;
+  font-size: 0.8rem;
 }
 
 .footer_option_privacy {
@@ -559,6 +570,10 @@ footer {
 }
 
 .footer_option_instagram {
+  width: 1rem;
+  margin: 0.3rem 1rem;
+  padding: 0.5rem;
+  background-size: cover;
   background: var(--instagram-icon);
 }
 

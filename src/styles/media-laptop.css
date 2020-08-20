@@ -193,4 +193,27 @@
   .tags-msg {
     font-size: 0.9rem;
   }
+
+  /*SHARE OPTIONS*/
+  .more_options {
+    bottom: 0;
+  }
+  .icon-share {
+    padding: 1rem;
+    width: 3rem;
+    margin: 1rem;
+  }
+  .icon-share:hover {
+    transform: scale(1.2);
+  }
+  .option-twitter {
+    transform: none;
+  }
+  .option-facebook {
+    transform: none;
+  }
+  .option-whatsapp {
+    transform: none;
+    display: none;
+  }
 }

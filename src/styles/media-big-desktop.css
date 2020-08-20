@@ -14,4 +14,38 @@
   .article-text {
     padding: 0 25rem 5rem;
   }
+
+  .search-results {
+    margin: 0 20rem 1rem;
+  }
+  .search-input-container {
+    margin: 1rem 20rem 1rem;
+  }
+  .close {
+    right: 21rem;
+  }
+
+  .article-text {
+    padding: 0 26rem 5rem;
+  }
+
+  .article-props {
+    padding: 1rem 16rem;
+  }
+
+  .back-button {
+    margin-left: 15rem;
+  }
+
+  .mobile-nav__items {
+    margin: 0 -17.5rem;
+  }
+  .logo {
+    margin-left: 14rem;
+  }
+
+  /*Share options*/
+  .more_options {
+    right: 18rem;
+  }
 }
