@@ -10,7 +10,7 @@ function SearchResult(props) {
           <Link
             onClick={props.onClose}
             className='redirect'
-            to={`post/${post.slug}`}
+            to={`/post/${post.slug}`}
           >
             <div className='post-result-title'>{post.title}</div>
             <div className='post-result-time-read'>

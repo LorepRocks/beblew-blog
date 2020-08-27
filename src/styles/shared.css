@@ -50,6 +50,7 @@
   --options-icon: url('../img/more.svg');
   --box-shadow-hover: rgba(0, 0, 0, 0.21);
   --links-color: #f55b73;
+  --recommended-section-color: #f6f6f6;
   /*SEARCH*/
   --input-bg: #f6f6f6;
   --input-txt-color: black;
@@ -109,6 +110,7 @@
   --options-icon: url('../img/more-dk.svg');
   --box-shadow-hover: rgb(7, 8, 10);
   --links-color: #e2a9c6;
+  --recommended-section-color: #3b3e46;
   /*SEARCH*/
   --input-bg: #22252b;
   --input-txt-color: #f6f6f6;
@@ -579,6 +581,44 @@ footer {
 
 .footer_option_twitter {
   background: var(--twitter-icon);
+}
+/*Error*/
+.error-container {
+  height: 94vh;
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+.error-info {
+  text-align: center;
+}
+
+.error-message {
+  font-family: Raleway, sans-serif;
+  font-size: 1.5rem;
+  margin: 1rem;
+  color: var(--card-title-color);
+}
+.error-icon {
+  font-size: 1.5rem;
+  color: var(--card-title-color);
+}
+
+.error-button {
+  padding: 0.8rem;
+  background-color: transparent;
+  border: 0.1rem solid var(--post-bg-color-one);
+  font-family: Raleway, sans-serif;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--card-title-color);
+  transition: all 0.2s;
+  text-decoration: none;
+  outline: none;
+}
+.error-button:hover {
+  background-color: var(--post-bg-color-one);
 }
 
 /*Animations*/

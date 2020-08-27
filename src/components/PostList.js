@@ -2,6 +2,7 @@ import React from 'react';
 import PostItem from './PostItem';
 import Loading from './Loading';
 import Footer from './Footer';
+import Error from './Error';
 import '../styles/index.css';
 import '../styles/shared.css';
 import Api from '../Api';
@@ -31,13 +32,16 @@ class PostList extends React.Component {
       })
       .catch((err) => {
         this.setState({
-          loading: true,
+          loading: false,
           error: err.message,
         });
       });
   };
 
   render() {
+    if (this.state.error) {
+      return <Error />;
+    }
     if (!this.state.loading) {
       return (
         <React.Fragment>

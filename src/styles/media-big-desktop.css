@@ -3,7 +3,7 @@
     padding: 2rem 22rem 1rem;
   }
   .article__info-container {
-    margin-top: 8.2rem;
+    margin: 1rem 0 0;
   }
   .wave {
     height: 22rem;
@@ -42,6 +42,9 @@
   }
   .logo {
     margin-left: 14rem;
+  }
+  .recommended-title {
+    margin: 0 26rem;
   }
 
   /*Share options*/

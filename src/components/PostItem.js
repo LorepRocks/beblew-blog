@@ -8,7 +8,7 @@ function PostItem(props) {
   const bgStyle = {
     backgroundImage: `url(${post.feature_image.replace(
       'localhost',
-      '192.168.0.10'
+      '192.168.0.14'
     )})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
