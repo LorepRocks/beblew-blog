@@ -44,11 +44,28 @@
     margin-left: 14rem;
   }
   .recommended-title {
-    margin: 0 26rem;
+    margin: 0 26rem 2rem;
+  }
+  .recommended-post {
+    width: 32.5rem;
+    height: 22rem;
   }
 
   /*Share options*/
   .more_options {
     right: 18rem;
+  }
+  /*Footer*/
+  footer {
+    padding: 0 33rem;
+  }
+  .footer-options p {
+    font-size: 0.8rem;
+  }
+  /*Loader*/
+  .loader {
+    margin: 0 auto;
+    padding: 25%;
+    justify-content: center;
   }
 }

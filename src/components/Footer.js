@@ -9,7 +9,12 @@ function Footer(props) {
         </p>
         <p>
           Síguenos en
-          <a className='redirect' href='_blank'>
+          <a
+            className='redirect'
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://www.instagram.com/beblew/'
+          >
             <i className='icon-footer fa fa-instagram'></i>
           </a>
         </p>

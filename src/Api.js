@@ -1,7 +1,6 @@
 import GhostContentAPI from '@tryghost/content-api';
-import { createPortal } from 'react-dom';
-const BASE_URL = 'http://192.168.0.14:2368';
-const KEY = 'b217a53126b99fbc4deee59ed5';
+const BASE_URL = 'https://cms.beblew.com';
+const KEY = '8ad4a1d6e5b8edb3d2a13d78e3';
 const VERSION = 'v3';
 
 class Api {
@@ -24,7 +23,7 @@ class Api {
         { formats: ['html'] }
       );
     } catch (e) {
-      console.log('____error', e);
+      console.error('Post By Stug Error', e);
     }
   }
   getTags() {

@@ -6,10 +6,7 @@ import '../styles/shared.css';
 function PostItem(props) {
   const post = props.post;
   const bgStyle = {
-    backgroundImage: `url(${post.feature_image.replace(
-      'localhost',
-      '192.168.0.14'
-    )})`,
+    backgroundImage: `url(${post.feature_image})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',

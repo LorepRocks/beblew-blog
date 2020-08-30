@@ -26,7 +26,6 @@ class Header extends React.Component {
   };
 
   handleToggleClick = (e) => {
-    console.log('___click search');
     this.setState((prevState) => {
       return {
         showSearch: prevState.showSearch ? false : true,

@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   margin: auto;
-  height: 90vh;
+  height: 100vh;
   background: var(--body-bg-color);
   padding: 80% 6rem 1rem;
   box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);

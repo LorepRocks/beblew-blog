@@ -540,7 +540,7 @@ input:checked + .slider:before {
 }
 
 footer {
-  height: 2.5rem;
+  height: 2rem;
   padding: 0.3rem 0.5rem;
   background: linear-gradient(
     to right,

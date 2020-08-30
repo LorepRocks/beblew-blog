@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import '../styles/shared.css';
 import SearchResult from '../components/SearchResult';
 
@@ -11,7 +11,6 @@ function Search(props) {
   const api = new Api();
 
   useEffect(() => {
-    console.log('___get tags');
     getTags();
     /* FIXME: should exist a better way to ensure don't allow scroll on search modal without add position to body */
     document.body.style.position = 'fixed';
@@ -23,7 +22,6 @@ function Search(props) {
     });
   }
   async function handleOnTagClick(e) {
-    console.log('___tag target', e.target);
     const tagSlug = e.target.id;
     setTagSelected(tagSlug);
     await api.getPostsByTag(tagSlug).then((posts) => {

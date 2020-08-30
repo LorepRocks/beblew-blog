@@ -41,7 +41,6 @@ class Post extends React.Component {
   };
 
   handleMoreOptionsClick = (e) => {
-    console.log('more options  ', e.target);
     const moreOptions = document.querySelector('.more_options');
     const optionsIcon = document.querySelector('.options_icon');
     let visible;
@@ -60,18 +59,15 @@ class Post extends React.Component {
   readPost = async () => {
     this.setState({ loading: true, error: null });
     const slug = this.props.match.params.postSlug;
-    console.log('slug', slug);
     await this.api
       .getPostBySlug(slug)
       .then((post) => {
-        console.log('___post', post);
         this.setState({
           loading: false,
           post: post,
         });
       })
       .catch((err) => {
-        console.log('____CAtch error');
         this.setState({
           loading: false,
           error: err.message,
@@ -92,7 +88,6 @@ class Post extends React.Component {
     this.setState({
       posts: this._.sampleSize(postsList, 2),
     });
-    console.log('____recommended post', this.state.posts);
   };
 
   componentWillUnmount() {

@@ -176,4 +176,26 @@
   .option-whatsapp {
     transform: translate(-1.5rem, -3.9rem);
   }
+  /*Recommended post*/
+  .recommended-post-container {
+    display: flex;
+    justify-content: center;
+  }
+  .recommended-post {
+    width: 19rem;
+    height: 17rem;
+  }
+  /*Footer*/
+  footer {
+    padding: 0 6rem;
+  }
+  .footer_options p {
+    font-size: 0.75rem;
+  }
+  /*Loader*/
+  .loader {
+    height: 100vh;
+    padding: 40%;
+    justify-content: center;
+  }
 }

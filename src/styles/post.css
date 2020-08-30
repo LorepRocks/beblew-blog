@@ -28,7 +28,6 @@
 .article__info-container {
   position: absolute;
   top: 3rem;
-  width: 100vw;
 }
 .article-header {
   width: 100%;
@@ -219,6 +218,7 @@
   font-size: 1.5rem;
   color: var(--card-title-color);
   background: var(--recommended-section-color);
+  margin-bottom: 2rem;
 }
 .recommended-title:before {
   content: '';
@@ -247,7 +247,7 @@
 .recommended-post {
   height: 15rem;
   width: auto;
-  margin: 1rem;
+  margin: 1rem 1rem 2rem;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
