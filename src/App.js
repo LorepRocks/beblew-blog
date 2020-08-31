@@ -6,7 +6,7 @@ import Layout from './components/Layout';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter forceRefresh={true}>
       <Layout>
         <Switch>
           <Route exact path='/' component={Home} />

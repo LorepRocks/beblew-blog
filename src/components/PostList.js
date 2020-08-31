@@ -1,5 +1,8 @@
 import React from 'react';
 import PostItem from './PostItem';
+import Loading from './Loading';
+import Footer from './Footer';
+import Error from './Error';
 import '../styles/index.css';
 import '../styles/shared.css';
 import Api from '../Api';
@@ -36,18 +39,24 @@ class PostList extends React.Component {
   };
 
   render() {
+    if (this.state.error) {
+      return <Error />;
+    }
     if (!this.state.loading) {
       return (
-        <section>
-          <main>
-            {this.state.data.map((post) => (
-              <PostItem key={post.id} post={post} />
-            ))}
-          </main>
-        </section>
+        <React.Fragment>
+          <section>
+            <main>
+              {this.state.data.map((post) => (
+                <PostItem key={post.id} post={post} />
+              ))}
+            </main>
+          </section>
+          <Footer />
+        </React.Fragment>
       );
     } else {
-      return <h1>Loading...</h1>;
+      return <Loading />;
     }
   }
 }

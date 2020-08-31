@@ -5,39 +5,49 @@ import '../styles/shared.css';
 
 function PostItem(props) {
   const post = props.post;
-  console.log('___post', post);
+  const bgStyle = {
+    backgroundImage: `url(${post.feature_image})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  };
   return (
-    <article className='post shadow large'>
-      <div className='post__header'>
-        <div className='post__options'>
-          <div className='post__options_save '></div>
-          <div className='post__options_share'></div>
-          <div className='post__options_pin'></div>
-        </div>
-      </div>
-      <Link to={`post/${post.slug}`} className='redirect'>
-        <div className='post__info_container'>
-          <div className='post__title'>
-            <div className='post__title_box'>{post.title}</div>
-            <span></span>
-          </div>
-          <div className='post__item'>
-            <div className='post__info'>
-              <blockquote className='post__author'>
-                {post.primary_author.name}
-              </blockquote>
-              <div className='post__tags'>
-                {post.tags.map((tag) => (
-                  <div key={tag.id} className='post__tag'>
-                    {tag.name}
-                  </div>
-                ))}
+    <article style={bgStyle} className=' post shadow large'>
+      <div className='bg-gradient'>
+        <Link to={`post/${post.slug}`} className='redirect'>
+          <div className='post__info_container'>
+            <div className='post__read_time animate__animated animate__tada'>
+              {`Lectura ${post.reading_time} min`}
+            </div>
+            <div className='post__title'>
+              <span></span>
+              <div className='post__title_box animate__animated animate__fadeInDown'>
+                {post.title}
               </div>
             </div>
-            <div className='post__preview'>{post.excerpt}</div>
+            <div className='post__item'>
+              <div className='post__info'>
+                <div className='post__tags'>
+                  {post.tags.map((tag) => (
+                    <div
+                      key={tag.id}
+                      className='post__tag animate__animated animate__fadeInDown'
+                    >
+                      {tag.name}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className='post__preview animate__animated animate__fadeInUpBig'>
+                {post.excerpt}
+              </div>
+              <div className='post__read animate__animated animate__flipInX'>
+                {'LEER POST >'}
+              </div>
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </article>
   );
 }

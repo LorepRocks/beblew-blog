@@ -1,0 +1,254 @@
+@media (min-width: 960px) {
+  main {
+    padding: 2rem 5rem 1rem;
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+  header {
+    height: 4rem;
+  }
+  .logo {
+    margin-left: 5rem;
+    font-size: 2.5rem;
+  }
+
+  .icon {
+    font-size: 1.3rem;
+  }
+  .mobile-nav__item {
+    margin: 1rem 1rem 0;
+  }
+  .mobile-nav__items {
+    margin: 0 -5.5rem;
+  }
+  .post {
+    width: 30.5%;
+    height: 35rem;
+    flex-grow: 0;
+  }
+
+  .post__title_box {
+    font-size: 2.8em;
+  }
+  .post__read_time {
+    font-size: 0.7rem;
+  }
+
+  article {
+    margin: 0rem;
+  }
+  article:nth-child(1) {
+    flex-basis: 61.8%;
+  }
+  article:nth-child(1) .post__title_box {
+    font-size: 3.2rem;
+  }
+
+  .post__options {
+    height: 4rem;
+    padding: 1rem 0.5rem;
+  }
+  .post__options div {
+    width: 1.5rem;
+    background-size: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .post__title {
+    display: grid;
+    place-content: center;
+  }
+
+  .post__author {
+    font-size: 0.8rem;
+  }
+  .post__tag {
+    font-size: 0.8rem;
+  }
+
+  .post__preview {
+    font-size: 0.75rem;
+    height: 3rem;
+  }
+  .normal {
+    background: var(--card-bg-color);
+  }
+
+  /*POST*/
+  .header-post {
+    box-shadow: none;
+  }
+  .header-post .profile_name {
+    font-size: 0.9rem;
+  }
+  .header-post .profile_view {
+    font-size: 0.8rem;
+  }
+  .main-post {
+    padding: 0;
+  }
+  .back-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: 6rem;
+  }
+  .article {
+    height: 23.9rem;
+  }
+  .article-header {
+    height: 1rem;
+  }
+  .article-props {
+    padding: 1rem 7rem;
+    height: 10rem;
+  }
+  .article__info-container {
+    margin-top: 1rem;
+  }
+  .article-title {
+    font-size: 3.8rem;
+  }
+  .article-tag {
+    font-size: 0.9rem;
+    color: var(--article-tag-text-color);
+  }
+  .article-text {
+    width: 100%;
+    padding: 0 12rem 5rem;
+    margin-top: -4rem;
+    font-size: 1.1rem;
+  }
+  .wave {
+    height: 13rem;
+    background-position: 50% 64%;
+  }
+  .options {
+    display: none;
+  }
+  .more_options {
+    transform: none;
+    bottom: 1rem;
+    right: 3rem;
+    width: 3.5rem;
+    height: 10rem;
+  }
+  .options_list div {
+    width: 1.4rem;
+    margin: 0.7rem auto;
+    height: 1.8rem;
+  }
+  .post__options_save:hover {
+    background: var(--bookmark-check-icon) no-repeat;
+  }
+  .post__options_share:hover {
+    background: var(--shared-icon) no-repeat;
+  }
+  .post__options_pin:hover {
+    background: var(--pinned-icon) no-repeat;
+  }
+  .post-result-container {
+    transition: 0.35s ease-in-out;
+  }
+  .post-result-container:hover {
+    padding-left: 1.5rem;
+    background: var(--search-result-hover);
+  }
+
+  /*SEARCH BAR*/
+  .search-results {
+    margin: 0 8rem 1rem;
+  }
+  .search-input-container {
+    margin: 1rem 8rem 1rem;
+    width: 82%;
+  }
+  .search-input {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+  .btn-clear-search {
+    width: 13rem;
+    font-size: 0.8rem;
+  }
+
+  .close {
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 2rem;
+    right: 8rem;
+  }
+  .search-tags-item {
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .btn-clear-search:hover {
+    box-shadow: 0px 2px 11px var(--box-shadow-hover);
+  }
+  .search-tags-item:hover {
+    box-shadow: 0px 2px 11px var(--box-shadow-hover);
+    transform: scale(1.1);
+  }
+  .tags-msg {
+    font-size: 0.9rem;
+  }
+
+  /*SHARE OPTIONS*/
+  .more_options {
+    bottom: 2rem;
+  }
+  .icon-share {
+    padding: 1rem;
+    width: 3rem;
+    margin: 1rem;
+  }
+  .icon-share:hover {
+    transform: scale(1.2);
+  }
+  .option-twitter {
+    transform: none;
+  }
+  .option-facebook {
+    transform: none;
+  }
+  .option-whatsapp {
+    transform: none;
+    display: none;
+  }
+  /*Recommended post*/
+  .recommended-title {
+    margin: 0 11rem 2rem;
+  }
+  .recommended-post-container {
+    display: flex;
+    justify-content: center;
+  }
+  .recommended-post {
+    width: 30rem;
+    height: 20rem;
+    margin-bottom: 2rem;
+  }
+  .recommended-post-read {
+    font-size: 0.8rem;
+  }
+  .recommended-post-read {
+    font-size: 0.7rem;
+  }
+  .recommended-post-title {
+    font-size: 1.9rem;
+  }
+
+  /*Footer*/
+  footer {
+    padding: 0 12rem;
+  }
+  .footer_options p {
+    font-size: 0.8rem;
+  }
+  /*Loader*/
+  .loader {
+    padding: 25%;
+    justify-content: center;
+  }
+}
