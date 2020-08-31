@@ -40,7 +40,6 @@
   --logout-icon: url('../img/off.svg');
   --darkmode-icon: url('../img/dark.svg');
   --close-icon: url('../img/close.svg');
-  --tags-icon: url('../img/squares.svg');
   /*POST*/
   --wave-bg: url('../img/wave.svg');
   --article-text-color: black;
@@ -82,7 +81,6 @@
   --lock-icon: url('../img/lock-dk.svg');
   --instagram-icon: url('../img/instagram-dk.svg');
   --twitter-icon: url('../img/twitter-dk.svg');
-  --tags-icon: url('../img/squares.svg');
   --tag-bg-color: #9d779c;
   --large-bg-color: #22252b;
   --medium-bg-color: #22252b;
