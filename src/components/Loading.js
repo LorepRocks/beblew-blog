@@ -3,7 +3,7 @@ import '../styles/shared.css';
 import '../styles/loader.css';
 function Loading() {
   return (
-    <div class='loader'>
+    <div className='loader'>
       <span></span>
       <span></span>
       <span></span>
