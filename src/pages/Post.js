@@ -77,6 +77,7 @@ class Post extends React.Component {
 
   recommendedPosts = async () => {
     let postsList;
+    const slug = this.props.match.params.postSlug;
     await this.api
       .getPosts()
       .then((posts) => {
@@ -85,9 +86,11 @@ class Post extends React.Component {
       .catch((err) => {
         console.error('Error trying to get posts', err);
       });
-    this.setState({
-      posts: this._.sampleSize(postsList, 2),
-    });
+
+      let filterPost = postsList.filter((post) => post.slug !== slug);
+      this.setState({
+        posts: this._.sampleSize(filterPost, 2),
+      });
   };
 
   componentWillUnmount() {
