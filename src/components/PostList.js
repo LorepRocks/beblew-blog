@@ -1,53 +1,35 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as postsActions from '../actions/postsActions';
+
 import PostItem from './PostItem';
 import Loading from './Loading';
 import Footer from './Footer';
 import Error from './Error';
+
 import '../styles/index.css';
 import '../styles/shared.css';
-import Api from '../Api';
+
 
 class PostList extends React.Component {
-  state = {
-    loading: true,
-    error: null,
-    data: [],
-  };
+ 
 
   componentDidMount() {
-    this.api = new Api();
-    this.fetchPosts();
+    this.props.getPosts();
   }
 
-  fetchPosts = async () => {
-    this.setState({ loading: true });
-
-    await this.api
-      .getPosts()
-      .then((posts) => {
-        this.setState({
-          loading: false,
-          data: posts,
-        });
-      })
-      .catch((err) => {
-        this.setState({
-          loading: false,
-          error: err.message,
-        });
-      });
-  };
+  
 
   render() {
-    if (this.state.error) {
+    if (this.props.error) {
       return <Error />;
     }
-    if (!this.state.loading) {
+    if (!this.props.loading) {
       return (
         <React.Fragment>
           <section>
             <main>
-              {this.state.data.map((post) => (
+              {this.props.posts.map((post) => (
                 <PostItem key={post.id} post={post} />
               ))}
             </main>
@@ -61,4 +43,9 @@ class PostList extends React.Component {
   }
 }
 
-export default PostList;
+//allow access to reducers from component props
+const mapStateToProps = ( reducers ) => {
+  return reducers.postsReducer;
+}
+
+export default connect(mapStateToProps, postsActions)(PostList);
