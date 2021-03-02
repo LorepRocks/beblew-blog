@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/post.css';
-function RecommendedPost(props) {
-  const posts = props.posts;
+import Loading from '../components/Loading';
 
+import '../styles/post.css';
+
+
+
+function RecommendedPost(props) {
+  const posts = props.posts || [];
   return (
     <div className='recommended-section'>
       <div className='recommended-title'>Recomendados</div>
@@ -24,7 +28,7 @@ function RecommendedPost(props) {
                 <div className='recommended-post-read-time'>
                   Lectura {post.reading_time} min
                 </div>
-                <div className='recommended-post-read'>LEER POST ></div>
+                <div className='recommended-post-read'>LEER POST</div>
               </div>
             </div>
           </Link>
