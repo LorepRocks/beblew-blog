@@ -16,10 +16,7 @@ function RecommendedPost(props) {
           <Link className='redirect' to={`/post/${post.slug}`} key={post.id}>
             <div
               style={{
-                backgroundImage: `url(${post.feature_image.replace(
-                  'localhost',
-                  '192.168.0.13'
-                )})`,
+                backgroundImage: `url(${post.feature_image})`, 
               }}
               className='recommended-post'
             >

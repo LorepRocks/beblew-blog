@@ -1,5 +1,5 @@
 import Api from '../Api';
-import { GET_POSTS, LOADING, ERROR, GET_POST, GET_RECOMMENDED_POST } from '../types/postsTypes';
+import { GET_POSTS, LOADING, ERROR, GET_POST, GET_RECOMMENDED_POST , GET_TAGS, GET_POSTS_BY_TAG} from '../types/postsTypes';
 
 
 const api = new Api();
@@ -69,4 +69,35 @@ export const getRecommendedPosts = (slug) => async(dispatch) => {
         payload: _.sampleSize(filterPost, 2)
       });
    
+}
+
+export const getTags = () => async(dispatch) => {
+  const tags = await api.getTags().then((tags) => {
+    return tags;
+  }).catch((e) => {
+    dispatch({
+      type: ERROR,
+      payload: e.message
+    })
+  })
+  dispatch({
+    type: GET_TAGS,
+    payload: tags
+  })
+}
+
+export const getPostsByTag = (tag) => async(dispatch) => {
+  const posts = await api.getPostsByTag(tag).then((posts) => {
+    return posts;
+  }).catch(e => {
+    dispatch({
+      type: ERROR,
+      payload: e.message
+    })
+  })
+
+  dispatch({
+    type: GET_POSTS_BY_TAG,
+    payload: posts
+  });
 }

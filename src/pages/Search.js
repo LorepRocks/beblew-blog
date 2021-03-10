@@ -1,32 +1,41 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getTags, getPostsByTag } from '../actions/postsActions';
 import '../styles/shared.css';
 import SearchResult from '../components/SearchResult';
 
 import Api from '../Api';
 function Search(props) {
+  const dispatch = useDispatch();
+
+  
+  //const dispatch = useDispatch(function)
   const [tags, setTags] = React.useState([]);
   const [postByTag, setPostByTag] = React.useState([]);
   const [filteredPosts, setFilteredPost] = React.useState([]);
   const [selectedTag, setTagSelected] = React.useState('');
+  const state = useSelector(state => state.postsReducer);
   const api = new Api();
 
   useEffect(() => {
-    getTags();
+    getTagsList();
     /* FIXME: should exist a better way to ensure don't allow scroll on search modal without add position to body */
     document.body.style.position = 'fixed';
   }, []);
 
-  async function getTags() {
-    await api.getTags().then((tags) => {
+  useEffect(() => {
+    setPostByTag(state.postsByTag);
+  }, [state.postsByTag]);
+
+  async function getTagsList() {
+    await dispatch(getTags()).then((tags) => {
       setTags(tags);
     });
   }
   async function handleOnTagClick(e) {
     const tagSlug = e.target.id;
     setTagSelected(tagSlug);
-    await api.getPostsByTag(tagSlug).then((posts) => {
-      setPostByTag(posts);
-    });
+    dispatch(getPostsByTag(tagSlug));
   }
   function handleOnCleanClick(e) {
     setPostByTag([]);
@@ -51,7 +60,7 @@ function Search(props) {
     <div className={`search-container ${props.addClass}`}>
       <div onClick={props.onClose} className='close'></div>
       <div className='search-input-container'>
-        {postByTag.length > 0 && (
+        {postByTag && postByTag.length > 0 && (
           <button onClick={handleOnCleanClick} className='btn-clear-search'>
             X {selectedTag.replace('-', ' ').toUpperCase()}
           </button>
@@ -62,10 +71,10 @@ function Search(props) {
           placeholder='Buscar un post...'
         />
       </div>
-      {postByTag.length === 0 && filteredPosts.length === 0 && (
+      {postByTag && postByTag.length === 0 && filteredPosts.length === 0 && (
         <div className='search-results'>
           <ul onClick={handleOnTagClick} className='search-tags-container'>
-            {tags.map((tag) => (
+            {state.tags.map((tag) => (
               <li className='search-tags-item' key={tag.id} id={tag.slug}>
                 {tag.name}
               </li>
@@ -75,7 +84,7 @@ function Search(props) {
           <div className='result-count'>0 Post Encontrados</div>
         </div>
       )}
-      {postByTag.length > 0 && filteredPosts.length === 0 && (
+      { postByTag && postByTag.length > 0 && filteredPosts.length === 0 && (
         <SearchResult posts={postByTag} onClose={props.onClose} />
       )}
       {filteredPosts.length > 0 && (

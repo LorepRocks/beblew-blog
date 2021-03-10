@@ -158,6 +158,8 @@
   /*SEARCH BAR*/
   .search-results {
     margin: 0 8rem 1rem;
+    height: auto;
+    overflow-y: hidden ;
   }
   .search-input-container {
     margin: 1rem 8rem 1rem;
