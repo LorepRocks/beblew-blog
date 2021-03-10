@@ -17,6 +17,7 @@
 
   .search-results {
     margin: 0 20rem 1rem;
+    overflow-y: hidden;
   }
   .search-input-container {
     margin: 1rem 20rem 1rem;

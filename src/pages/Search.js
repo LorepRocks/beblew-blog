@@ -34,22 +34,26 @@ function Search(props) {
   }
   async function handleOnTagClick(e) {
     const tagSlug = e.target.id;
+    const searchInputEl = document.querySelector('.search-input');
     setTagSelected(tagSlug);
+    searchInputEl.classList.add('search-input-medium');
     dispatch(getPostsByTag(tagSlug));
   }
   function handleOnCleanClick(e) {
+    const searchInputEl = document.querySelector('.search-input');
+    searchInputEl.classList.remove('search-input-medium');
     setPostByTag([]);
     setTagSelected('');
   }
 
   async function handleChangeText(e) {
-    let query = e.target.value;
+    const query = e.target.value;
     const regex = /^ *$/g;
     setFilteredPost([]);
     setPostByTag([]);
 
     if (query !== '' && !regex.test(query)) {
-      let filter = props.posts.filter((post) => {
+      const filter = props.posts.filter((post) => {
         return post.title.toLowerCase().includes(query.toLowerCase());
       });
       setFilteredPost(filter);
