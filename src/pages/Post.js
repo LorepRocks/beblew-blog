@@ -26,6 +26,7 @@ class Post extends React.Component {
     const slug = this.props.match.params.postSlug;
     this.parse = require('html-react-parser');
     this.moment = require('moment');
+    console.log('____componentDidMount post');
     await this.props.getPost(slug);
     await this.props.getRecommendedPosts(slug);
     this.updateStyles();
@@ -77,6 +78,7 @@ class Post extends React.Component {
     }
     
     if(!this.props.loading){
+      console.log('____open post render');
       return (
         <article className='post-container'>
           <div className='article__info-container'>
@@ -109,6 +111,7 @@ class Post extends React.Component {
             <div onClick={this.handleMoreOptionsClick} className='options shadow'>
               <div className='options_icon'></div>
             </div>
+            {this.props.showShareOptions && (
             <div className='more_options'>
               <div className='options_list'>
                 <a
@@ -131,6 +134,7 @@ class Post extends React.Component {
                 </a>
               </div>
             </div>
+            )}
               <RecommendedPost posts={this.props.recommendedPosts} />
             <Footer />
           </div>

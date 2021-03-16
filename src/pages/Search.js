@@ -1,21 +1,20 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTags, getPostsByTag } from '../actions/postsActions';
+import { getTags, getPostsByTag, getPosts } from '../actions/postsActions';
 import '../styles/shared.css';
 import SearchResult from '../components/SearchResult';
 
-import Api from '../Api';
+
 function Search(props) {
   const dispatch = useDispatch();
-
-  
-  //const dispatch = useDispatch(function)
   const [tags, setTags] = React.useState([]);
+  const [posts, setPosts] = React.useState([]);
   const [postByTag, setPostByTag] = React.useState([]);
   const [filteredPosts, setFilteredPost] = React.useState([]);
   const [selectedTag, setTagSelected] = React.useState('');
   const state = useSelector(state => state.postsReducer);
-  const api = new Api();
+
+
 
   useEffect(() => {
     getTagsList();
@@ -26,6 +25,9 @@ function Search(props) {
   useEffect(() => {
     setPostByTag(state.postsByTag);
   }, [state.postsByTag]);
+
+
+  
 
   async function getTagsList() {
     await dispatch(getTags()).then((tags) => {
@@ -53,7 +55,7 @@ function Search(props) {
     setPostByTag([]);
 
     if (query !== '' && !regex.test(query)) {
-      const filter = props.posts.filter((post) => {
+      const filter = state.posts.filter((post) => {
         return post.title.toLowerCase().includes(query.toLowerCase());
       });
       setFilteredPost(filter);

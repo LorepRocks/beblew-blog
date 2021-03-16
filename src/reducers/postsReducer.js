@@ -1,4 +1,4 @@
-import { GET_POSTS, LOADING, ERROR, GET_POST, GET_RECOMMENDED_POST, GET_TAGS, GET_POSTS_BY_TAG } from '../types/postsTypes';
+import { GET_POSTS, LOADING, ERROR, GET_POST, GET_RECOMMENDED_POST, GET_TAGS, GET_POSTS_BY_TAG, SHOW_SHARE_OPTIONS } from '../types/postsTypes';
 
 const INITIAL_STATE={
     posts: [],
@@ -7,7 +7,8 @@ const INITIAL_STATE={
     post: {},
     recommendedPosts: [],
     tags: [], 
-    postsByTag: []
+    postsByTag: [],
+    showShareOptions: false
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -21,7 +22,8 @@ export default (state = INITIAL_STATE, action) => {
                     return {
                         ...state,
                         post: action.payload,
-                        loading: false
+                        loading: false,
+                        showShareOptions: true
                     };
             case GET_RECOMMENDED_POST: 
                     return {
@@ -33,7 +35,8 @@ export default (state = INITIAL_STATE, action) => {
                  return {
                      ...state,
                      tags: action.payload,
-                     loading: false
+                     loading: false,
+                     showShareOptions: false
                  }
             case GET_POSTS_BY_TAG: 
                  return {
@@ -41,8 +44,11 @@ export default (state = INITIAL_STATE, action) => {
                      postsByTag: action.payload,
                      loading: false
                  }
+            
             case LOADING:
                 return { ...state , loading: true};
+            case SHOW_SHARE_OPTIONS:
+                return {...state, showShareOptions: true}
             case ERROR: 
                 return {...state, error: action.payload, loading: false}
 

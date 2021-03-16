@@ -1,59 +1,44 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {getPosts} from '../actions/postsActions';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 import '../styles/shared.css';
 import Search from '../pages/Search';
-import Api from '../Api';
 
-class Header extends React.Component {
-  state = {
-    showSearch: false,
-    class: '',
-    darkMode: localStorage.getItem('darkMode') === 'true' ? true : false,
-    themeIcon: 'fa-moon-o',
-    posts: [],
-  };
-  componentDidMount() {
-    this.api = new Api();
-    this.getPosts();
-  }
-  getPosts = async () => {
-    await this.api.getPosts().then((posts) => {
-      this.setState({
-        posts: posts,
-      });
+
+function Header(props){
+  const dispatch = useDispatch();
+  const [showSearch, setShowSearch] = React.useState(false);
+  const [cssClass, setCssClass] = React.useState('');
+  const [darkMode, setDarkMode] = React.useState(localStorage.getItem('darkMode') === 'true' ? true : false);
+  const [themeIcon, setThemeIcon] = React.useState('fa-moon-o');
+  const [posts, setPost] = React.useState([]);
+
+  useEffect(() => {
+    dispatch(getPosts()).then(posts => {
+      setPost(posts);
     });
+  }, []);
+  
+
+  function handleToggleClick (e){
+    setShowSearch(!showSearch);
+    setCssClass(showSearch ? '' : 'open');
   };
 
-  handleToggleClick = (e) => {
-    this.setState((prevState) => {
-      return {
-        showSearch: prevState.showSearch ? false : true,
-        class: prevState.showSearch ? '' : 'open',
-      };
-    });
-  };
-
-  handleNavClose = () => {
+  function handleNavClose(){
     document.body.style.position = 'unset';
-    this.setState((prevState) => {
-      return {
-        showSearch: prevState.showSearch ? false : true,
-        class: prevState.showSearch ? '' : 'open',
-      };
-    });
+    setShowSearch(!showSearch);
+    setCssClass(showSearch ? '' : 'open');
   };
 
-  handleNavDarkToggle = () => {
-    this.setState((prevState) => {
-      return {
-        darkMode: prevState.darkMode ? false : true,
-      };
-    });
+  function handleNavDarkToggle(){
+    setDarkMode(!darkMode);
   };
 
-  render() {
-    if (this.state.darkMode) {
+ 
+    if (darkMode) {
       localStorage.setItem('darkMode', true);
       document.documentElement.setAttribute('data-theme', 'dark');
     } else {
@@ -68,24 +53,23 @@ class Header extends React.Component {
           </Link>
         </div>
         <div className='backdrop'></div>
-        <div onClick={this.handleToggleClick} className='toggle-button'></div>
+        <div onClick={handleToggleClick} className='toggle-button'></div>
         <Navbar
-          onAdjustClick={this.handleNavDarkToggle}
-          themeIcon={this.state.themeIcon}
-          darkMode={this.state.darkMode}
-          onSearchClick={this.handleToggleClick}
+          onAdjustClick={handleNavDarkToggle}
+          themeIcon={themeIcon}
+          darkMode={darkMode}
+          onSearchClick={handleToggleClick}
         />
-        {this.state.showSearch && (
+        {showSearch && (
           <Search
-            onClose={this.handleNavClose}
-            addClass={this.state.class}
-            posts={this.state.posts}
-            onSearchClick={this.handleToggleClick}
+            onClose={handleNavClose}
+            addClass={cssClass}
+            posts={posts}
+            onSearchClick={handleToggleClick}
           />
         )}
       </header>
     );
-  }
 }
 
 export default Header;

@@ -11,9 +11,9 @@
   .article-props {
     height: 6rem;
   }
-  .article-text {
+  /* .article-text {
     padding: 0 25rem 5rem;
-  }
+  } */
 
   .search-results {
     margin: 0 20rem 1rem;
@@ -26,9 +26,9 @@
     right: 21rem;
   }
 
-  .article-text {
+  /* .article-text {
     padding: 0 26rem 5rem;
-  }
+  } */
 
   .article-props {
     padding: 1rem 16rem;
