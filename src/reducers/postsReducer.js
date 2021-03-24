@@ -8,7 +8,7 @@ const INITIAL_STATE={
     recommendedPosts: [],
     tags: [], 
     postsByTag: [],
-    showShareOptions: false
+    isShowingShare: false
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -48,7 +48,7 @@ export default (state = INITIAL_STATE, action) => {
             case LOADING:
                 return { ...state , loading: true};
             case SHOW_SHARE_OPTIONS:
-                return {...state, showShareOptions: true}
+                return {...state, isShowingShare: action.payload}
             case ERROR: 
                 return {...state, error: action.payload, loading: false}
 

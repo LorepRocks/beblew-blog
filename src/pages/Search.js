@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTags, getPostsByTag, getPosts } from '../actions/postsActions';
+import { getTags, getPostsByTag,showShareOptions } from '../actions/postsActions';
 import '../styles/shared.css';
 import SearchResult from '../components/SearchResult';
 
@@ -30,6 +30,7 @@ function Search(props) {
   
 
   async function getTagsList() {
+    await dispatch(showShareOptions(false));
     await dispatch(getTags()).then((tags) => {
       setTags(tags);
     });

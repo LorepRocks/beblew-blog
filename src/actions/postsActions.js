@@ -1,5 +1,5 @@
 import Api from '../Api';
-import { GET_POSTS, LOADING, ERROR, GET_POST, GET_RECOMMENDED_POST , GET_TAGS, GET_POSTS_BY_TAG} from '../types/postsTypes';
+import { GET_POSTS, LOADING, ERROR, GET_POST, GET_RECOMMENDED_POST , GET_TAGS, GET_POSTS_BY_TAG, SHOW_SHARE_OPTIONS} from '../types/postsTypes';
 
 
 const api = new Api();
@@ -45,6 +45,11 @@ export const getPost = (slug) => async (dispatch) => {
     type: GET_POST,
     payload: post
   });
+
+  dispatch({
+    type: SHOW_SHARE_OPTIONS,
+    payload: true
+  });
   
 }
 
@@ -72,6 +77,10 @@ export const getRecommendedPosts = (slug) => async(dispatch) => {
 }
 
 export const getTags = () => async(dispatch) => {
+  dispatch({
+    type: SHOW_SHARE_OPTIONS,
+    payload: false
+  });
   const tags = await api.getTags().then((tags) => {
     return tags;
   }).catch((e) => {
@@ -99,5 +108,12 @@ export const getPostsByTag = (tag) => async(dispatch) => {
   dispatch({
     type: GET_POSTS_BY_TAG,
     payload: posts
+  });
+}
+
+export const showShareOptions = (value) => (dispatch) => {
+  dispatch({
+    type: SHOW_SHARE_OPTIONS,
+    payload: value
   });
 }

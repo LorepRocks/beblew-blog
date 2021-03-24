@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {getPosts} from '../actions/postsActions';
+import {getPosts, showShareOptions} from '../actions/postsActions';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 import '../styles/shared.css';
@@ -10,16 +10,20 @@ import Search from '../pages/Search';
 function Header(props){
   const dispatch = useDispatch();
   const [showSearch, setShowSearch] = React.useState(false);
+  
   const [cssClass, setCssClass] = React.useState('');
   const [darkMode, setDarkMode] = React.useState(localStorage.getItem('darkMode') === 'true' ? true : false);
   const [themeIcon, setThemeIcon] = React.useState('fa-moon-o');
   const [posts, setPost] = React.useState([]);
+  
 
   useEffect(() => {
     dispatch(getPosts()).then(posts => {
       setPost(posts);
     });
   }, []);
+
+  
   
 
   function handleToggleClick (e){
@@ -31,6 +35,8 @@ function Header(props){
     document.body.style.position = 'unset';
     setShowSearch(!showSearch);
     setCssClass(showSearch ? '' : 'open');
+    
+    if(showSearch) dispatch(showShareOptions(true)) ;
   };
 
   function handleNavDarkToggle(){
